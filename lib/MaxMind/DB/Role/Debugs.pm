@@ -5,7 +5,7 @@ use warnings;
 use namespace::autoclean;
 use autodie;
 
-use Moose::Role;
+use Moo::Role;
 
 sub _debug_newline {
     warn "\n";

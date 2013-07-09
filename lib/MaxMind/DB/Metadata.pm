@@ -6,24 +6,22 @@ use namespace::autoclean;
 
 use Math::Int128;
 
-use Moose;
-use Moose::Util::TypeConstraints;
-use MooseX::StrictConstructor;
+use Moo;
+use MooX::Types::MooseLike::Base qw( ArrayRef HashRef InstanceOf Int Str );
+use MooX::StrictConstructor;
 
 with 'MaxMind::DB::Role::Debugs';
 
 {
-    class_type('Math::UInt128');
-
     my %metadata = (
-        binary_format_major_version => 'Int',
-        binary_format_minor_version => 'Int',
-        build_epoch                 => 'Int|Math::UInt128',
-        database_type               => 'Str',
-        description                 => 'HashRef[Str]',
-        ip_version                  => 'Int',
-        node_count                  => 'Int',
-        record_size                 => 'Int',
+        binary_format_major_version => Int,
+        binary_format_minor_version => Int,
+        build_epoch                 => InstanceOf ['Math::Int128'],
+        database_type               => Str,
+        description                 => HashRef [Str],
+        ip_version                  => Int,
+        node_count                  => Int,
+        record_size                 => Int,
     );
 
     for my $attr ( keys %metadata ) {
@@ -37,7 +35,7 @@ with 'MaxMind::DB::Role::Debugs';
 
 has languages => (
     is      => 'ro',
-    isa     => 'ArrayRef[Str]',
+    isa     => ArrayRef [Str],
     default => sub { [] },
 );
 
@@ -71,7 +69,7 @@ sub debug_dump {
             . DateTime->from_epoch( epoch => $self->build_epoch() ) . ')'
     );
 
-    $self->_debug_string('  Database type', $self->database_type() );
+    $self->_debug_string( '  Database type', $self->database_type() );
 
     my $description = $self->description();
     for my $locale ( sort keys %{$description} ) {
