@@ -7,7 +7,7 @@ use namespace::autoclean;
 use Math::Int128;
 
 use Moo;
-use MooX::Types::MooseLike::Base qw( ArrayRef HashRef InstanceOf Int Str );
+use MaxMind::DB::Types qw( ArrayRefOfStr Epoch HashRefOfStr Int Str );
 use MooX::StrictConstructor;
 
 with 'MaxMind::DB::Role::Debugs';
@@ -16,9 +16,9 @@ with 'MaxMind::DB::Role::Debugs';
     my %metadata = (
         binary_format_major_version => Int,
         binary_format_minor_version => Int,
-        build_epoch                 => InstanceOf ['Math::Int128'],
+        build_epoch                 => Epoch,
         database_type               => Str,
-        description                 => HashRef [Str],
+        description                 => HashRefOfStr,
         ip_version                  => Int,
         node_count                  => Int,
         record_size                 => Int,
@@ -35,7 +35,7 @@ with 'MaxMind::DB::Role::Debugs';
 
 has languages => (
     is      => 'ro',
-    isa     => ArrayRef [Str],
+    isa     => ArrayRefOfStr,
     default => sub { [] },
 );
 
