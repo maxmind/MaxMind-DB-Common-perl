@@ -3,9 +3,11 @@ package Test::MaxMind::DB::Common::Util;
 use strict;
 use warnings;
 
-use Sub::Exporter -setup => { exports => ['standard_metadata'] };
+use Exporter qw( import );
 
-sub standard_metadata {
+our @EXPORT_OK = qw( standard_test_metadata );
+
+sub standard_test_metadata {
     return (
         database_type => 'Test',
         languages     => [ 'en', 'zh' ],
