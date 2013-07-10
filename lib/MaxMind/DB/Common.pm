@@ -3,6 +3,14 @@ package MaxMind::DB::Common;
 use strict;
 use warnings;
 
+# This is a hack to let us test code that requires a specific
+# MaxMind::DB::Common version against the MaxMind-DB-Common git repo code, but
+# without actually setting the $VERSION variable.
+BEGIN {
+    $MaxMind::DB::Common::{VERSION} = \99
+        unless exists $MaxMind::DB::Common::{VERSION};
+}
+
 use constant {
     LEFT_RECORD                 => 0,
     RIGHT_RECORD                => 1,
