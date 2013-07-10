@@ -1,5 +1,8 @@
 package Test::MaxMind::DB::Common::Util;
 
+use strict;
+use warnings;
+
 use Sub::Exporter -setup => { exports => ['standard_metadata'] };
 
 sub standard_metadata {
