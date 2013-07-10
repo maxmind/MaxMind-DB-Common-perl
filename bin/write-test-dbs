@@ -56,7 +56,7 @@ sub write_tree {
     );
 
     my $filename = sprintf(
-        't/test-data/ipv%i-%i.mmdb',
+        't/test-data/MaxMind-DB-test-%i-%i.mmdb',
         $metadata->{ip_version},
         $record_size,
     );
