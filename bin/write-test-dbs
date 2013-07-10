@@ -16,20 +16,19 @@ my @sizes = ( 24, 28, 32 );
     my @subnets
         = Net::Works::Network->range_as_subnets( '1.1.1.1', '1.1.1.32' );
 
-    foreach my $record_size ( @sizes ) {
+    foreach my $record_size (@sizes) {
         write_tree( $record_size, \@subnets, { ip_version => 4 } );
     }
 }
 
 {
-
-    foreach my $record_size ( @sizes ) {
-
-        my @subnets = Net::Works::Network->range_as_subnets( '::1:ffff:ffff',
-            '::2:0000:0059' );
+    foreach my $record_size (@sizes) {
+        my @subnets = Net::Works::Network->range_as_subnets(
+            '::1:ffff:ffff',
+            '::2:0000:0059'
+        );
 
         write_tree( $record_size, \@subnets, { ip_version => 6 } );
-
     }
 }
 
@@ -42,8 +41,10 @@ sub write_tree {
         ip_version => $subnets->[0]->version() );
 
     for my $subnet ( @{$subnets} ) {
-        $tree->insert_subnet( $subnet,
-            { ip => $subnet->first()->as_string() } );
+        $tree->insert_subnet(
+            $subnet,
+            { ip => $subnet->first()->as_string() }
+        );
     }
 
     my $writer = MaxMind::DB::Writer::Tree::File->new(
@@ -51,14 +52,17 @@ sub write_tree {
         record_size => $record_size,
         standard_metadata(),
         %{$metadata},
-        map_key_type_callback => sub {'utf8_string'},
+        map_key_type_callback => sub { 'utf8_string' },
     );
 
-    my $filename = sprintf( 't/test-data/ipv%i-%i.mmdb',
-        $metadata->{ip_version}, $record_size );
+    my $filename = sprintf(
+        't/test-data/ipv%i-%i.mmdb',
+        $metadata->{ip_version},
+        $record_size,
+    );
     open my $fh, '>', $filename;
 
-    $writer->write_tree( $fh );
+    $writer->write_tree($fh);
 
     return ( $tree, $filename );
 }
