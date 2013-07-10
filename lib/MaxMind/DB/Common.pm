@@ -11,7 +11,7 @@ use constant {
 
 use Exporter qw( import );
 
-our %TypeNumToString = (
+our %TypeNumToName = (
     0  => 'extended',
     1  => 'pointer',
     2  => 'utf8_string',
@@ -30,14 +30,14 @@ our %TypeNumToString = (
     15 => 'float',
 );
 
-our %TypeStringToNum = reverse %TypeNumToString;
+our %TypeNameToNum = reverse %TypeNumToName;
 
 our @EXPORT_OK = qw(
     LEFT_RECORD
     RIGHT_RECORD
     DATA_SECTION_SEPARATOR_SIZE
-    %TypeNumToString
-    %TypeStringToNum
+    %TypeNumToName
+    %TypeNameToNum
 );
 
 1;
