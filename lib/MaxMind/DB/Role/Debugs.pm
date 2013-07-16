@@ -42,7 +42,7 @@ sub _debug_string {
 sub _debug_sprintf {
     my $self = shift;
 
-    warn sprintf( shift . "\n", @_ );
+    warn sprintf( shift() . "\n", @_ );
 }
 
 sub _debug_structure {
