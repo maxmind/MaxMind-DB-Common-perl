@@ -52,3 +52,9 @@ our @EXPORT_OK = qw(
 
 # ABSTRACT: Code shared by the DB reader and writer modules
 
+__END__
+
+=head1 DESCRIPTION
+
+This first release is being done for the sake of the L<GeoIP2> package. Real
+documentation for this distro is forthcoming.
