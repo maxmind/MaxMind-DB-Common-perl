@@ -34,7 +34,8 @@ sub _debug_string {
     my $label  = shift;
     my $string = shift;
 
-    $string //= '<undef>';
+    $string = '<undef>'
+        unless defined $string;
 
     warn "$label: $string\n";
 }
