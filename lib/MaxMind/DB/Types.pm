@@ -135,7 +135,7 @@ our @EXPORT_OK = qw(
         q{
 ( defined $_[0] && !ref $_[0] && $_[0] =~ /^[0-9]+$/ )
     or MaxMind::DB::Types::_confess(
-    '%s is not a valid integer for an IP address',
+    '%s is not a valid integer',
     $_[0]
     );
 }
