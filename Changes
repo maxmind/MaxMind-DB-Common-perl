@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Added two more exported constants, DATA_SECTION_SEPARATOR and
+  METADATA_MARKER.
+
+
 0.031002 2013-07-18
 
 - Changes to make code work with Perl 5.8.x.
