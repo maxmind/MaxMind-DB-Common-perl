@@ -11,10 +11,18 @@ BEGIN {
         unless exists $MaxMind::DB::Common::{VERSION};
 }
 
+my $separator_size;
+
+BEGIN {
+    $separator_size = 16;
+}
+
 use constant {
     LEFT_RECORD                 => 0,
     RIGHT_RECORD                => 1,
-    DATA_SECTION_SEPARATOR_SIZE => 16,
+    DATA_SECTION_SEPARATOR_SIZE => $separator_size,
+    DATA_SECTION_SEPARATOR      => ( "\0" x $separator_size ),
+    METADATA_MARKER             => "\xab\xcd\xefMaxMind.com",
 };
 
 use Exporter qw( import );
@@ -44,6 +52,8 @@ our @EXPORT_OK = qw(
     LEFT_RECORD
     RIGHT_RECORD
     DATA_SECTION_SEPARATOR_SIZE
+    DATA_SECTION_SEPARATOR
+    METADATA_MARKER
     %TypeNumToName
     %TypeNameToNum
 );
