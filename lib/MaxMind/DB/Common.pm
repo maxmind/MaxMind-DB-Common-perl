@@ -60,11 +60,25 @@ our @EXPORT_OK = qw(
 
 1;
 
-# ABSTRACT: Code shared by the DB reader and writer modules
+# ABSTRACT: Code shared by the MaxMind DB reader and writer modules
 
 __END__
 
 =head1 DESCRIPTION
 
-This first release is being done for the sake of the L<GeoIP2> package. Real
-documentation for this distro is forthcoming.
+This distribution provides some shared code for use by both the MaxMind DB
+reader and writer Perl modules.
+
+For now, the only piece documented for public consumption is
+L<MaxMind::DB::Metadata>.
+
+=head1 VERSIONING POLICY
+
+This module uses semantic versioning as described by
+L<http://semver.org/>. Version numbers can be read as X.YYYZZZ, where X is the
+major number, YYY is the minor number, and ZZZ is the patch number.
+
+=head1 SUPPORT
+
+Please report all issues with this code using the GitHub issue tracker at
+L<https://github.com/maxmind/MaxMind-DB-Common-perl/issues>.

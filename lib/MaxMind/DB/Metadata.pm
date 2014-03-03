@@ -93,3 +93,63 @@ sub debug_dump {
 __PACKAGE__->meta()->make_immutable();
 
 1;
+
+#ABSTRACT: A class for metadata related to a MaxMind DB database
+
+__END__
+
+=head1 SYNOPSIS
+
+    my $reader = MaxMind::DB::Reader->new( file => $path );
+    my $metadata = $reader->metadata();
+
+    print $metadata->description()->{en};
+
+=head1 DESCRIPTION
+
+This class provides an API for representing the metadata of a MaxMind DB
+database. See http://maxmind.github.io/MaxMind-DB/ for the official format
+spec.
+
+=head1 API
+
+This class provides methods for each metadata attribute in a database.
+
+=head2 $metadata->binary_format_major_version()
+
+Returns the binary format major version number.
+
+=head2 $metadata->binary_format_minor_version()
+
+Returns the binary format minor version number.
+
+=head2 $metadata->build_epoch()
+
+Returns the database's build timestamp as an epoch value.
+
+=head2 $metadata->database_type()
+
+Returns a string indicating the database's type.
+
+=head2 $metadata->languages()
+
+Returns an arrayref of locale codes indicating what languages this database
+has information for.
+
+=head2 $metadata->description()
+
+Returns a hashref of descriptions. The keys should be locale codes like "en"
+or "pt-BR" and the values are the description in that language.
+
+=head2 $metadata->ip_version()
+
+Returns a 4 or 6 indicating what type of IP addresses this database can be
+used to look up.
+
+=head2 $metadata->node_count()
+
+Returns the number of nodes in the database's search tree.
+
+=head2 $metadata->record_size()
+
+Returns the record size for nodes in the database's search tree.
