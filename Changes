@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.031003 2014-03-10
+
 - Added docs for MaxMind::DB::Metadata.
 
 - Added two more exported constants, DATA_SECTION_SEPARATOR and
