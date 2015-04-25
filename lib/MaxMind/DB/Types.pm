@@ -69,10 +69,12 @@ our @EXPORT_OK = qw(
         q{
 (
     defined $_[0] && ( ( !ref $_[0] && $_[0] =~ /^[0-9]+$/ )
-        || ( Scalar::Util::blessed( $_[0] ) && $_[0]->isa('Math::UInt128') ) )
+        || ( Scalar::Util::blessed( $_[0] )
+            && ( $_[0]->isa('Math::UInt128') || $_[0]->isa('Math::BigInt') ) )
+        )
     )
     or MaxMind::DB::Types::_confess(
-    '%s is not an integer or a Math::UInt128 object',
+    '%s is not an integer, a Math::UInt128 object, or a Math::BigInt object',
     $_[0]
     );
 }
