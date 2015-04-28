@@ -3,6 +3,8 @@ package Test::MaxMind::DB::Common::Data;
 use strict;
 use warnings;
 
+our $VERSION = '0.040000';
+
 use Exporter qw( import );
 use Math::Int128 qw( uint128 );
 
@@ -16,6 +18,7 @@ sub test_cases_for {
     return __PACKAGE__->$method(@_);
 }
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _array {
     my @one_value = (
         ['Foo'] => [
@@ -84,22 +87,25 @@ sub _bytes {
     );
 
     my $bytes_500 = 'x' x 500;
-    push @bytes, $bytes_500 => [
+    push @bytes,
+        $bytes_500 => [
         0b10011110, 0b00000000, 0b11010111,
         map { ord($_) } split //, $bytes_500
-    ];
+        ];
 
     my $bytes_2000 = 'x' x 2000;
-    push @bytes, $bytes_2000 => [
+    push @bytes,
+        $bytes_2000 => [
         0b10011110, 0b00000110, 0b10110011,
         map { ord($_) } split //, $bytes_2000
-    ];
+        ];
 
     my $bytes_70000 = 'x' x 70000;
-    push @bytes, $bytes_70000 => [
+    push @bytes,
+        $bytes_70000 => [
         0b10011111, 0b00000000, 0b00010000, 0b01010011,
         map { ord($_) } split //, $bytes_70000
-    ];
+        ];
 
     return \@bytes;
 }
@@ -547,22 +553,25 @@ sub _utf8_string {
     );
 
     my $string_500 = 'x' x 500;
-    push @string, $string_500 => [
+    push @string,
+        $string_500 => [
         0b01011110, 0b00000000, 0b11010111,
         map { ord($_) } split //, $string_500
-    ];
+        ];
 
     my $string_2000 = 'x' x 2000;
-    push @string, $string_2000 => [
+    push @string,
+        $string_2000 => [
         0b01011110, 0b00000110, 0b10110011,
         map { ord($_) } split //, $string_2000
-    ];
+        ];
 
     my $string_70000 = 'x' x 70000;
-    push @string, $string_70000 => [
+    push @string,
+        $string_70000 => [
         0b01011111, 0b00000000, 0b00010000, 0b01010011,
         map { ord($_) } split //, $string_70000
-    ];
+        ];
 
     return \@string;
 }
@@ -577,5 +586,6 @@ sub _boolean {
         ],
     ];
 }
+## use critic
 
 1;

@@ -5,6 +5,8 @@ use warnings;
 use namespace::autoclean;
 use autodie;
 
+our $VERSION = '0.040000';
+
 use Moo::Role;
 
 sub _debug_newline {
@@ -19,7 +21,7 @@ sub _debug_binary {
     my $msg = "$label: ";
 
     if ( defined $binary ) {
-        $msg .= join q{ }, map { sprintf( "%08b", ord($_) ) } split //,
+        $msg .= join q{ }, map { sprintf( '%08b', ord($_) ) } split //,
             $binary;
     }
     else {

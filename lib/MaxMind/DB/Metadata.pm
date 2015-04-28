@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use namespace::autoclean;
 
+our $VERSION = '0.040000';
+
 use Moo;
 use MaxMind::DB::Types qw( ArrayRefOfStr Epoch HashRefOfStr Int Str );
 use MooX::StrictConstructor;
@@ -95,6 +97,9 @@ __PACKAGE__->meta()->make_immutable();
 #ABSTRACT: A class for metadata related to a MaxMind DB database
 
 __END__
+
+=for test_synopsis
+my $path;
 
 =head1 SYNOPSIS
 

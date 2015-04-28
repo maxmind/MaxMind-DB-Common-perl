@@ -3,11 +3,14 @@ package MaxMind::DB::Types;
 use strict;
 use warnings;
 
+our $VERSION = '0.040000';
+
 use Carp qw( confess );
 use Exporter qw( import );
 use List::AllUtils;
 use Scalar::Util ();
 use Sub::Quote qw( quote_sub );
+use overload ();
 
 our @EXPORT_OK = qw(
     ArrayRefOfStr
@@ -18,11 +21,11 @@ our @EXPORT_OK = qw(
     HashRef
     HashRefOfStr
     Int
-    MathUUInt128
     Metadata
     Str
 );
 
+## no critic (NamingConventions::Capitalization, ValuesAndExpressions::ProhibitImplicitNewlines)
 {
     my $t = quote_sub(
         q{
@@ -147,69 +150,9 @@ our @EXPORT_OK = qw(
 }
 
 {
-    my $t = quote_sub(
-        q{
-(
-    defined $_[0] && ( ( !ref $_[0] && $_[0] =~ /^[0-9]+$/ )
-        || ( Scalar::Util::blessed( $_[0] ) && $_[0]->isa('Math::UUInt128') ) )
-    )
-    or MaxMind::DB::Types::_confess(
-    '%s is not a valid integer for an IP address',
-    $_[0]
-    );
-}
-    );
-
-    sub IPInt () { $t }
-}
-
-{
-    my $t = quote_sub(
-        q{
-( defined $_[0] && !ref $_[0] && ( $_[0] == 4 || $_[0] == 6 ) )
-    or MaxMind::DB::Types::_confess(
-    '%s is not a valid IP version (4 or 6)',
-    $_[0]
-    );
-        }
-    );
-
-    sub IPVersion () { $t }
-}
-
-{
-    my $t = quote_sub(
-        q{
-( !ref $_[0] && $_[0] >= 0 && $_[0] <= 128 )
-    or MaxMind::DB::Types::_confess(
-    '%s is not a valid IP network mask length (0-128)', $_[0] );
-}
-    );
-
-    sub MaskLength () { $t }
-}
-
-{
-    my $t = _object_isa_type('Math::UInt128');
-
-    sub MathUInt128 () { $t }
-}
-
-{
     my $t = _object_isa_type('MaxMind::DB::Metadata');
 
     sub Metadata () { $t }
-}
-
-{
-    my $t = quote_sub(
-        q{
-( defined $_[0] && !ref $_[0] )
-    or MaxMind::DB::Types::_confess( '%s is not binary data', $_[0] );
-}
-    );
-
-    sub PackedBinary () { $t }
 }
 
 {
@@ -236,12 +179,16 @@ sub _object_isa_type {
 }
     );
 }
+## use critic
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _confess {
+    ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
     confess sprintf(
         $_[0],
         defined $_[1] ? overload::StrVal( $_[1] ) : 'undef'
     );
 }
+## use critic
 
 1;

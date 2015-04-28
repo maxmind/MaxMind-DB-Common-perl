@@ -3,13 +3,7 @@ package MaxMind::DB::Common;
 use strict;
 use warnings;
 
-# This is a hack to let us test code that requires a specific
-# MaxMind::DB::Common version against the MaxMind-DB-Common git repo code, but
-# without actually setting the $VERSION variable.
-BEGIN {
-    $MaxMind::DB::Common::{VERSION} = \99
-        unless exists $MaxMind::DB::Common::{VERSION};
-}
+our $VERSION = '0.040000';
 
 my $separator_size;
 
@@ -27,6 +21,7 @@ use constant {
 
 use Exporter qw( import );
 
+## no critic (Variables::ProhibitPackageVars)
 our %TypeNumToName = (
     0  => 'extended',
     1  => 'pointer',
