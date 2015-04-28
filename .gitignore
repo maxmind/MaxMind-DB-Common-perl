@@ -1,6 +1,6 @@
-\#*\#
 .\#*
 .build
+/.tidyall.d
 Build
 Debian_CPANTS.txt
 MANIFEST
@@ -10,6 +10,7 @@ Makefile.PL
 Makefile.old
 MaxMind-DB-Common-*
 README
+\#*\#
 \#*\#
 _build
 blib*
