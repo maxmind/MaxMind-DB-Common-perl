@@ -98,6 +98,9 @@ __PACKAGE__->meta()->make_immutable();
 
 __END__
 
+=for test_synopsis
+my $path;
+
 =head1 SYNOPSIS
 
     my $reader = MaxMind::DB::Reader->new( file => $path );

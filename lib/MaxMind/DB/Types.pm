@@ -10,6 +10,7 @@ use Exporter qw( import );
 use List::AllUtils;
 use Scalar::Util ();
 use Sub::Quote qw( quote_sub );
+use overload ();
 
 our @EXPORT_OK = qw(
     ArrayRefOfStr
@@ -24,6 +25,7 @@ our @EXPORT_OK = qw(
     Str
 );
 
+## no critic (NamingConventions::Capitalization, ValuesAndExpressions::ProhibitImplicitNewlines)
 {
     my $t = quote_sub(
         q{
@@ -177,12 +179,16 @@ sub _object_isa_type {
 }
     );
 }
+## use critic
 
+## no critic (Subroutines::ProhibitUnusedPrivateSubroutines)
 sub _confess {
+    ## no critic (Subroutines::ProhibitCallsToUnexportedSubs)
     confess sprintf(
         $_[0],
         defined $_[1] ? overload::StrVal( $_[1] ) : 'undef'
     );
 }
+## use critic
 
 1;

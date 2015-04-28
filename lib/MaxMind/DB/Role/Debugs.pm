@@ -21,7 +21,7 @@ sub _debug_binary {
     my $msg = "$label: ";
 
     if ( defined $binary ) {
-        $msg .= join q{ }, map { sprintf( "%08b", ord($_) ) } split //,
+        $msg .= join q{ }, map { sprintf( '%08b', ord($_) ) } split //,
             $binary;
     }
     else {

@@ -21,6 +21,7 @@ use constant {
 
 use Exporter qw( import );
 
+## no critic (Variables::ProhibitPackageVars)
 our %TypeNumToName = (
     0  => 'extended',
     1  => 'pointer',
