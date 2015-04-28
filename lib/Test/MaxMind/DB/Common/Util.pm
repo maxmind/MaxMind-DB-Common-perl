@@ -3,6 +3,8 @@ package Test::MaxMind::DB::Common::Util;
 use strict;
 use warnings;
 
+our $VERSION = '0.040000';
+
 use Exporter qw( import );
 
 our @EXPORT_OK = qw( standard_test_metadata );

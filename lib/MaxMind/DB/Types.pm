@@ -3,6 +3,8 @@ package MaxMind::DB::Types;
 use strict;
 use warnings;
 
+our $VERSION = '0.040000';
+
 use Carp qw( confess );
 use Exporter qw( import );
 use List::AllUtils;

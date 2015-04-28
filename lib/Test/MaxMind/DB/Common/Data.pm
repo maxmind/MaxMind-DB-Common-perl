@@ -3,6 +3,8 @@ package Test::MaxMind::DB::Common::Data;
 use strict;
 use warnings;
 
+our $VERSION = '0.040000';
+
 use Exporter qw( import );
 use Math::Int128 qw( uint128 );
 

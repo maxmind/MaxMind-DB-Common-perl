@@ -4,6 +4,8 @@ use strict;
 use warnings;
 use namespace::autoclean;
 
+our $VERSION = '0.040000';
+
 use Moo;
 use MaxMind::DB::Types qw( ArrayRefOfStr Epoch HashRefOfStr Int Str );
 use MooX::StrictConstructor;

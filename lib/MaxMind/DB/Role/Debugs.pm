@@ -5,6 +5,8 @@ use warnings;
 use namespace::autoclean;
 use autodie;
 
+our $VERSION = '0.040000';
+
 use Moo::Role;
 
 sub _debug_newline {
