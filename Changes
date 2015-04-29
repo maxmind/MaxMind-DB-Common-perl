@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Use Math::BigInt rather than Math::Int128 as part of working towards making
+  MaxMind::DB::Reader pure Perl.
+
+
 0.031003 2014-03-10
 
 - Added docs for MaxMind::DB::Metadata.
