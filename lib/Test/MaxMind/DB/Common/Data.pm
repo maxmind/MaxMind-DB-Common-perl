@@ -3,7 +3,7 @@ package Test::MaxMind::DB::Common::Data;
 use strict;
 use warnings;
 
-our $VERSION = '0.040000';
+our $VERSION = '0.040001';
 
 use Exporter qw( import );
 use Math::BigInt ();

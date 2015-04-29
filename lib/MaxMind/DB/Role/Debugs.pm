@@ -5,7 +5,7 @@ use warnings;
 use namespace::autoclean;
 use autodie;
 
-our $VERSION = '0.040000';
+our $VERSION = '0.040001';
 
 use Moo::Role;
 
