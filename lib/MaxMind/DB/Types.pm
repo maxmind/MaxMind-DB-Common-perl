@@ -7,7 +7,7 @@ our $VERSION = '0.040001';
 
 use Carp qw( confess );
 use Exporter qw( import );
-use List::AllUtils;
+use List::Util 1.33;
 use Scalar::Util ();
 use Sub::Quote qw( quote_sub );
 use overload ();
@@ -32,7 +32,7 @@ our @EXPORT_OK = qw(
 (
            defined $_[0]
         && Scalar::Util::reftype( $_[0] ) eq 'ARRAY'
-        && List::AllUtils::all(
+        && List::Util::all(
         sub { defined $_ && !ref $_ },
         @{ $_[0] }
         )
@@ -121,7 +121,7 @@ our @EXPORT_OK = qw(
 (
            defined $_[0]
         && Scalar::Util::reftype( $_[0] ) eq 'HASH'
-        && &List::AllUtils::all(
+        && &List::Util::all(
         sub { defined $_ && !ref $_ }, values %{ $_[0] }
         )
     )
