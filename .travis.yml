@@ -30,7 +30,10 @@ before_install:
   - eval $(curl https://travis-perl.github.io/init) --auto
 notifications:
   email:
+    on_failure: always
+    on_success: change
     recipients:
       - dev-ci@maxmind.com
-    on_success: change
-    on_failure: always
+  slack:
+    rooms:
+      secure: "NSclaruhQvA2AbwhpElgA3r0VYDV3ua4jQko9Wgk7qS9PmB4PGgP6X64dcpJ+aNqhSlrLs0oIDFqOtM3yy5mU4Jd6cfar4ICtTKxwJVmrHgc7d4GpzAtX71BmUDdKP1G66t8o8PB0k/3UelylSdBRfjudz/xii64SY629/7Zank=\n"
