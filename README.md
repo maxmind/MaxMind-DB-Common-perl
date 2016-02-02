@@ -4,7 +4,7 @@ MaxMind::DB::Common - Code shared by the MaxMind DB reader and writer modules
 
 # VERSION
 
-version 0.040000
+version 0.040001
 
 # DESCRIPTION
 
@@ -36,7 +36,7 @@ Greg Oschwald <goschwald@maxmind.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2015 by MaxMind, Inc..
+This software is Copyright (c) 2016 by MaxMind, Inc..
 
 This is free software, licensed under:
 

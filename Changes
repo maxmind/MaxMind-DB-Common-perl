@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+0.040001 2016-02-02
+
 - Validation on the Int type used in the Metadata class has been loosened,
   which should fix MaxMind::DB::Reader test failures on some platforms.
 
