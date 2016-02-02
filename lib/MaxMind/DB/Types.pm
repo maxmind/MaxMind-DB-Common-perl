@@ -84,6 +84,8 @@ our @EXPORT_OK = qw(
     );
 
     sub Epoch () { $t }
+
+    sub Int () { $t }
 }
 
 {
@@ -133,20 +135,6 @@ our @EXPORT_OK = qw(
     );
 
     sub HashRefOfStr () { $t }
-}
-
-{
-    my $t = quote_sub(
-        q{
-( defined $_[0] && !ref $_[0] && $_[0] =~ /^[0-9]+$/ )
-    or MaxMind::DB::Types::_confess(
-    '%s is not a valid integer',
-    $_[0]
-    );
-}
-    );
-
-    sub Int () { $t }
 }
 
 {

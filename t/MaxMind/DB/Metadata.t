@@ -3,9 +3,10 @@ use warnings;
 
 use Test::More;
 
+use Math::BigInt ();
 use MaxMind::DB::Metadata;
 
-my $metadata = MaxMind::DB::Metadata->new(
+my %args = (
     binary_format_major_version => 1,
     binary_format_minor_version => 1,
     build_epoch                 => time(),
@@ -16,6 +17,19 @@ my $metadata = MaxMind::DB::Metadata->new(
     record_size                 => 32,
 );
 
-ok( $metadata, 'code compiles' );
+{
+    my $metadata = MaxMind::DB::Metadata->new(%args);
+
+    ok( $metadata, 'code compiles' );
+}
+
+{
+    my $metadata = MaxMind::DB::Metadata->new(
+        %args,
+        binary_format_major_version => Math::BigInt->bone,
+    );
+
+    ok( $metadata, 'Math::BigInt works as Int in Metadata' );
+}
 
 done_testing();

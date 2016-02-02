@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Validation on the Int type used in the Metadata class has been loosened,
+  which should fix MaxMind::DB::Reader test failures on some platforms.
+
+
 0.040000 2015-04-29
 
 - Use Math::BigInt rather than Math::Int128 as part of working towards making
