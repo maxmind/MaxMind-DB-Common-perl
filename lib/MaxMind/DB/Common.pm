@@ -3,7 +3,7 @@ package MaxMind::DB::Common;
 use strict;
 use warnings;
 
-our $VERSION = '0.040001';
+our $VERSION = '0.040002';
 
 my $separator_size;
 

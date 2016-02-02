@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use namespace::autoclean;
 
-our $VERSION = '0.040001';
+our $VERSION = '0.040002';
 
 use Moo;
 use MaxMind::DB::Types qw( ArrayRefOfStr Epoch HashRefOfStr Int Str );
