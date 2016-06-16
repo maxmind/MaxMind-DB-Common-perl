@@ -103,7 +103,7 @@ my $path;
 
 =head1 SYNOPSIS
 
-    my $reader = MaxMind::DB::Reader->new( file => $path );
+    my $reader = MaxMind::DB::Reader->new( file => '/path/to/file.mmdb' );
     my $metadata = $reader->metadata();
 
     print $metadata->description()->{en};
