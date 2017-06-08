@@ -4,7 +4,7 @@ MaxMind::DB::Common - Code shared by the MaxMind DB reader and writer modules
 
 # VERSION
 
-version 0.040001
+version 0.040002
 
 # DESCRIPTION
 
@@ -25,18 +25,21 @@ major number, YYY is the minor number, and ZZZ is the patch number.
 Please report all issues with this code using the GitHub issue tracker at
 [https://github.com/maxmind/MaxMind-DB-Common-perl/issues](https://github.com/maxmind/MaxMind-DB-Common-perl/issues).
 
+Bugs may be submitted through [https://github.com/maxmind/MaxMind-DB-Common-perl/issues](https://github.com/maxmind/MaxMind-DB-Common-perl/issues).
+
 # AUTHORS
 
 - Dave Rolsky <drolsky@maxmind.com>
 - Olaf Alders <oalders@maxmind.com>
 
-# CONTRIBUTOR
+# CONTRIBUTORS
 
-Greg Oschwald <goschwald@maxmind.com>
+- Greg Oschwald <goschwald@maxmind.com>
+- Mateu X Hunter <mhunter@maxmind.com>
 
 # COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2016 by MaxMind, Inc..
+This software is Copyright (c) 2013 - 2017 by MaxMind, Inc.
 
 This is free software, licensed under:
 
