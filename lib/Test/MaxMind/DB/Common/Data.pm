@@ -519,9 +519,6 @@ sub _uint16 {
 }
 
 sub _utf8_string {
-    shift;
-    my %p = @_;
-
     my @string = (
         q{}        => [0b01000000],
         '1'        => [ 0b01000001, ord('1') ],

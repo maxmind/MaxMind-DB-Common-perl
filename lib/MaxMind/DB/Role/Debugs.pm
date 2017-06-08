@@ -9,6 +9,8 @@ our $VERSION = '0.040002';
 
 use Moo::Role;
 
+## no critic (ProhibitUnusedPrivateSubroutines)
+
 sub _debug_newline {
     warn "\n";
 }
