@@ -6,12 +6,14 @@ use warnings;
 our $VERSION = '0.040002';
 
 use Carp qw( confess );
-use Exporter qw( import );
 use List::AllUtils;
 use Scalar::Util ();
 use Sub::Quote qw( quote_sub );
 use overload ();
 
+use namespace::clean;
+
+use Exporter qw( import );
 our @EXPORT_OK = qw(
     ArrayRefOfStr
     Bool
@@ -44,7 +46,7 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub ArrayRefOfStr () { $t }
+    sub ArrayRefOfStr () {$t}
 }
 
 {
@@ -58,13 +60,13 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub Bool () { $t }
+    sub Bool () {$t}
 }
 
 {
     my $t = _object_isa_type('MaxMind::DB::Reader::Decoder');
 
-    sub Decoder () { $t }
+    sub Decoder () {$t}
 }
 
 {
@@ -83,9 +85,9 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub Epoch () { $t }
+    sub Epoch () {$t}
 
-    sub Int () { $t }
+    sub Int () {$t}
 }
 
 {
@@ -100,7 +102,7 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub FileHandle () { $t }
+    sub FileHandle () {$t}
 }
 
 {
@@ -114,7 +116,7 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub HashRef () { $t }
+    sub HashRef () {$t}
 }
 
 {
@@ -134,13 +136,13 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub HashRefOfStr () { $t }
+    sub HashRefOfStr () {$t}
 }
 
 {
     my $t = _object_isa_type('MaxMind::DB::Metadata');
 
-    sub Metadata () { $t }
+    sub Metadata () {$t}
 }
 
 {
@@ -151,7 +153,7 @@ our @EXPORT_OK = qw(
 }
     );
 
-    sub Str () { $t }
+    sub Str () {$t}
 }
 
 sub _object_isa_type {
